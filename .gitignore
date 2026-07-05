@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Flask/Flask-related logs
+instance/
+.webassets-cache
+/tmp/
+
+# OpenStack/SSH files
+*.pem
+*.key
+config.env
