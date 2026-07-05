@@ -1,4 +1,4 @@
-# OpenStack Dynamic Service Function Chaining (SFC) Orchestrator
+# Predictive NFV Orchestrator with Dynamic Service Function Chaining
 
 An intelligent, hybrid VNF (Virtual Network Function) orchestrator and **Transformer-based predictive placement engine** built on **OpenStack Dalmatian (2024.2)**. This platform automates the provisioning, dynamic placement, and packet steering of containerized security functions (Firewall, IDS, Monitor) inside lightweight host VMs.
 
