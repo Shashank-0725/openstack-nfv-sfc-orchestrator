@@ -135,8 +135,53 @@ The orchestrator automates the following Neutron SFC commands to create the serv
 ### Openstacck
 ![Orchestration Panel](./screenshots/openstack.png)
 
-### Live Telemetry Dashboard
-Visualizes the active chain topology, live CPU metrics per VNF, blocked threats (IDS alerts), and recent packet streams.
+All results below were produced on a live OpenStack deployment
+
+### 1. Deployed topology
+
+Orchestrator-provisioned VMs: Firewall, IDS, Monitor, Client, Server.
+
+![openstack server list](./screenshots/server_list.png)
+
+### 2. Service Function Chain created via Neutron
+
+The orchestrator creates port pairs, port pair groups, the port chain and the flow
+classifier through the Neutron SFC API.
+
+![SFC port pair](./screenshots/sfc_port_pair.png)
+![SFC port pair group](./screenshots/port_pair_group.png)
+![SFC port chain](./screenshots/sfc_port_chain.png)
+![SFC flow classifier](./screenshots/sfc_flow_classifier.png)
+
+Chain: `Client → Firewall → IDS → Monitor → Server`
+
+### 3. Traffic steering through the chain
+
+Client-to-firewall and firewall-to-server traffic captured at the firewall VNF,
+confirming packets traverse the chain.
+
+![Firewall interception](./screenshots/firewall_demo.png)
+
+### 4. IDS rate limiting
+
+The IDS blocks a source after exceeding **25 requests** within the detection window.
+
+![IDS blocking](./screenshots/ids-demo.png)
+
+### 5. Monitor VNF telemetry
+
+After sending 20 requests to the server, the monitor reported packets/s, throughput
+and per-protocol (TCP/UDP/ICMP) counts.
+
+![Monitor stats](./screenshots/monitor_demo.png)
+
+### 6. Containerized VNFs
+
+VNF images are built with Docker and pulled from a private registry.
+
+![Private registry](./screenshots/catalog%20%282%29.png)
+
+### Deployment Log
 ![Dashboard View 2](./screenshots/dashboard2.png)
 
 ---
